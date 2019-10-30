@@ -1,0 +1,600 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #E6E6E9;
+  color: #1C1C34;
+  margin: 0;
+}
+
+form legend {
+  display: none;
+}
+
+form fieldset {
+  border: none;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Header ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+header {
+  width: 100%;
+  background-color: #fff;
+  padding: 0 1em;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  box-shadow: 0 4px 1px rgba(0, 0, 0, 0.3);
+  top: 0;
+  z-index: 9999;
+}
+
+/* Header tablet */
+@media (min-width: 48em) {
+  header {
+    padding: 0 10vw;
+  }
+}
+
+/* Header desktop */
+@media (min-width: 71em) {
+  header {
+    padding: 0 15vw;
+  }
+}
+
+header nav {
+  width: 100%;
+}
+
+header ul {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+
+header ul li {
+  padding: 0;
+}
+
+li a {
+  color: #060068;
+  text-decoration: none;
+  display: flex;
+  position: relative;
+}
+
+li a:hover {
+  text-decoration: underline;
+}
+
+li:last-of-type a::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  background-image: url('../images/bookmark.png');
+}
+
+li:last-of-type a::after {
+  opacity: 0;
+}
+
+li:last-of-type a.bookmarks::after {
+  display: inline-block;
+  content: attr(data-value);
+  width: 18px;
+  height: 18px;
+  background: #0063D3;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transform: translateY(-10px);
+  font-size: 13px;
+  position: absolute;
+  right: -1.2em;
+  text-align: center;
+  opacity: 1;
+  animation: bounceIn .5s;
+}
+
+/* Animatie: https://thoughtbot.com/blog/css-animation-for-beginners */
+@keyframes bounceIn {
+  0% {
+    transform: translateY(-10px) scale(0.1);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateY(-10px) scale(1.3);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-10px) scale(1);
+  }
+}
+
+/* Header 'opgeslagen verhalen' */
+li:last-of-type a span {
+  display: none;
+}
+
+@media (min-width: 48em) { 
+  li:last-of-type a span {
+    display: block;
+  }
+}
+
+/* Aside filter ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+aside {
+  background: #FFC917;
+  width: 100%;
+  padding: 0 1em 6em 0;
+}
+
+/* Aside tablet */
+@media (min-width: 48em) {
+  aside {
+    padding: 0 10vw;
+    height: 14em;
+  }
+}
+
+/* Aside desktop */
+@media (min-width: 71em) {
+  aside {
+    padding: 0 15vw;
+  }
+}
+
+aside form:first-of-type {
+  padding: 2em 0;
+}
+
+/* https://codepen.io/paulcp/pen/rjWZwp */
+.switch-field {
+  overflow: hidden;
+}
+
+.switch-field input {
+  display: none;
+}
+
+.switch-field label {
+  float: left;
+}
+
+.switch-field label {
+  display: inline-block;
+  color: #A37F33;
+  font-size: 1em;
+  font-weight: normal;
+  text-align: center;
+  text-shadow: none;
+  padding: 0.5em;
+  border-bottom: 0.05em solid rgba(0, 0, 0, 0.15);
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.switch-field label:hover {
+  cursor: pointer;
+}
+
+.switch-field input:checked+label {
+  color: #060068;
+  border-bottom: 0.05em solid #060068;
+}
+
+/* Aside label filters */
+
+aside form:last-of-type input[type="checkbox"] {
+  display: none;
+  margin: 0;
+}
+
+aside form:last-of-type ul input[type="checkbox"]+label {
+  display: block;
+  float: left;
+  background: #fff;
+  width: auto;
+  border-radius: 1em;
+  padding: .3em .6em;
+  margin: .5em;
+  opacity: 0.5;
+  color: #060068;
+  transition: 0.2s;
+}
+
+aside form:last-of-type ul input[type="checkbox"]+label:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+aside form:last-of-type ul input[type="checkbox"]:checked+label {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+
+/* Main ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+main {
+  width: 100%;
+  padding: 1em;
+  margin: -8em auto;
+}
+
+/* Main tablet */
+@media (min-width: 48em) {
+  main {
+    background: #fff;
+    width: 80vw;
+    padding: 2em;
+    margin: -2em auto;
+  }
+}
+
+/* Main desktop */
+@media (min-width: 71em) {
+  main {
+    width: 70vw;
+    padding: 3em;
+  }
+}
+
+main h1 {
+  width: 100%;
+  color: #060068;
+}
+
+main div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+main div.popular {
+  flex-direction: column-reverse;
+}
+
+/* Articles tablet */
+@media (min-width: 48em) {
+  main div.popular {
+    flex-direction: row-reverse;
+  }
+}
+
+/* Article */
+div>article {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 4px 1px rgba(0, 0, 0, 0.3);
+  margin-bottom: 3em;
+  max-height: 28em;
+}
+
+
+/* Article tablet */
+@media (min-width: 48em) {
+  div>article {
+    width: 45%;
+  }
+}
+
+/* Article desktop */
+@media (min-width: 71em) {
+  div>article {
+    width: 30%;
+  }
+}
+
+div>article section:first-of-type {
+  background: grey;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 40%;
+}
+
+div>article section:first-of-type img {
+  width: 100%;
+}
+
+/* Bookmark button */
+div>article section:first-of-type form {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 1em;
+  background: #fff;
+  width: 3em;
+  height: 3em;
+}
+
+div>article section:first-of-type form input {
+  display: none;
+}
+
+div>article section:first-of-type form input+label {
+  display: block;
+  background: url('../images/bookmark.png') no-repeat center;
+  transition: .3s;
+  width: 3em;
+  height: 3em;
+}
+
+div>article section:first-of-type form input:checked+label {
+  background: url('../images/bookmark-filled.png') no-repeat center;
+  transition: .3s;
+}
+
+div>article section+section {
+  padding: 2em;
+}
+
+div>article section+section h2 {
+  color: #060068;
+}
+
+div>article section+section footer {
+  color: #797979;
+}
+
+div>article section+section a {
+  color: #0063D3;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+div>article section+section a::before {
+  content: '';
+  width: 36px;
+  height: 1em;
+  display: inline-block;
+  background-image: url('../images/button.png');
+  transition: .3s;
+}
+
+div>article section+section a:hover::before {
+  transform: translateX(.5em);
+}
+
+
+
+
+/* Verhaal ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+body.verhaal {
+  background-color: rgb(84, 81, 114);
+}
+
+body.verhaal>article {
+  width: 100%;
+  padding: 1em;
+  font-style: italic;
+  letter-spacing: .1em;
+  font-family: serif;
+  color: white;
+}
+
+/* Verhaal tablet */
+@media (min-width: 48em) {
+  body.verhaal>article {
+    width: 80vw;
+    padding: 2em;
+    margin: 0 auto;
+  }
+}
+
+/* Verhaal desktop */
+
+@media (min-width: 71em) {
+  body.verhaal>article {
+    width: 60vw;
+    padding: 3em;
+  }
+}
+
+body.verhaal>article p {
+  line-height: 2em;
+  animation: blur 20s ease-out infinite;
+}
+
+body.verhaal>article p:nth-child(1) {
+  animation-delay: 1s;
+}
+
+body.verhaal>article p:nth-child(2) {
+  animation-delay: 10s;
+}
+
+body.verhaal>article p:nth-child(3) {
+  animation-delay: 15s;
+}
+
+body.verhaal>article p:nth-child(4) {
+  animation-delay: 25s;
+}
+
+/* https://codepen.io/onge/pen/KwdZpE */
+
+@keyframes blur {
+  0% {
+    text-shadow: 0 0 100px #fff;
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  5% {
+    text-shadow: 0 0 90px #fff;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  20% {
+    text-shadow: 0 0 0px #fff;
+    transform: translate(2px, -2px);
+  }
+
+  50% {
+    opacity: .3;
+    transform: translate(-5px, 5px);
+  }
+
+  95% {
+    text-shadow: 0 0 90px #fff;
+    transform: translate(0, 0);
+  }
+
+  100% {
+    text-shadow: 0 0 100px #fff;
+    opacity: 1;
+  }
+}
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter#Result */
+
+.overlay {
+  background-image: radial-gradient(circle farthest-side, rgba(0, 0, 0, 0), rgba(0, 0, 20, .3)), url('https://thumbs.gfycat.com/DependableHeavenlyKentrosaurus-size_restricted.gif');
+  background-color: rgba(0, 0, 0, 1);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  animation: sleep 20s linear;
+  pointer-events: none;
+}
+
+@keyframes sleep {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 0;
+  }
+
+  50% {
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(1px);
+  }
+
+  100% {
+    background-color: rgba(0, 0, 20, .85);
+    backdrop-filter: blur(10px);
+    opacity: .9;
+  }
+}
+
+
+body.verhaal>article form {
+  margin: 5em auto;
+  width: 45px;
+  height: 45px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  top: 0;
+  right: 1em;
+  background: #fff;
+  width: 3em;
+  height: 3em;
+  z-index: 99999;
+}
+
+body.verhaal>article form input {
+  display: none;
+}
+
+
+/* https://codepen.io/kieranfivestars/pen/PwzjgN */
+
+body.verhaal>article form input+label {
+  display: block;
+  background: url('../images/heart.png') no-repeat center;
+  transition: .3s;
+  width: 3em;
+  height: 3em;
+}
+
+body.verhaal>article form input:checked+label {
+  background: url('../images/heart-filled.png') no-repeat center;
+  transition: .3s;
+  animation: size .4s;  
+}
+
+body.verhaal>article form input+label+span {
+  position: absolute;
+  bottom: 70px;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: .6s;
+  z-index: -2;
+  font-size: 1em;
+  color: transparent;
+  font-weight: 400;
+  pointer-events: none;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body.verhaal>article form input:checked+label+span {
+  visibility: visible;
+  animation: fade 3s;
+  opacity: 1;
+}
+
+@keyframes size {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.3);
+  }
+
+  100% {
+    transform: scale(1.3);
+  }
+}
+
+@keyframes fade {
+  0% {
+    color: transparent;
+  }
+
+  50% {
+    color: #fff;
+  }
+
+  100% {
+    color: transparent;
+  }
+}
