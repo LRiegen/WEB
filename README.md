@@ -1,20 +1,20 @@
 # NS verhalen - Project web
 
-[Link naar demo](https://jouwgithub.github.io/project-web/index.html)  <- AANPASSEN
+[Link naar demo](https://lriegen.github.io/WEB/)
 
 
 ## Meta data
 
 - Lonneke Riegen
-- 500688777 <- AANPASSEN
-- Project Web
-- 12 oktober 2019
+- 500712882
+- Project Web Herkansing
+- 30 oktober 2019
 
 
 ## Concept
 
-De opdracht is een responsive website om online verhalen te lezen voor op reis
-ontwerpen en maken die aansluit op de huisstijl van NS. Verhalen dienen uniek te worden vormgegeven in een stijl die past bij het verhaal. Mijn concept voor deze website is om de gebruikerservaring zo aangenaam mogelijk te maken, voor, tijdens en na het reizen. Dit doe ik door de mogelijkheid te bieden om verhalen op te slaan om later (verder) te kunnen lezen. <-AANPASSEN OF VERWIJDEREN IDK
+De opdracht voor mijn schooljaar was een responsive website om online verhalen te lezen voor op reis, en deze
+ontwerpen en maken. Deze moet aansluiten bij de huisstijl van NS. Verhalen dienen uniek te worden vormgegeven in een stijl die past bij het verhaal. Als UXer vind ik het belangrijk vooral dat het logisch is, en makkelijk tussen devices kan switchen. Hierdoor wilt ik het heel erg hetzelfde houden op verschillende maten. Daardoor heb ik het mobile-first gedesigned. Daardoor kwam er wel voor veel lozen ruimte. Ik bied nu de mogelijkheid om verhalen op te slaan om later (verder) te kunnen lezen.
 
 ## Responsive
 Vanaf 48em gaat de layout over in het tablet design. Vanaf 71em past de layout zich aan naar het desktop design. Zie onderstaande afbeelding voor de breakpoint graph.
