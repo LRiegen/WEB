@@ -25,44 +25,59 @@ ul {
 
 /* Header ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-header {
+body > header {
   width: 100%;
   background-color: #fff;
   padding: 0 1em;
-  height: 50px;
+  height: 3.125rem;
   display: flex;
   align-items: center;
   position: sticky;
-  box-shadow: 0 4px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 .25rem 0.06rem rgba(0, 0, 0, 0.3);
   top: 0;
   z-index: 9999;
 }
 
 /* Header tablet */
 @media (min-width: 48em) {
-  header {
+  body > header {
     padding: 0 10vw;
   }
 }
 
 /* Header desktop */
 @media (min-width: 71em) {
-  header {
+  body > header {
     padding: 0 15vw;
   }
 }
 
-header nav {
+body > header nav {
   width: 100%;
+  padding: 0 1em;
 }
 
-header ul {
+/* nav tablet */
+@media (min-width: 48em) {
+  body > header nav {
+    padding: 0 2em;
+  }
+}
+
+/* nav desktop */
+@media (min-width: 71em) {
+  body > header nav {
+    padding: 0 3em;
+  }
+}
+
+body > header ul {
   display: flex;
   justify-content: space-between;
   margin: 0;
 }
 
-header ul li {
+body > header ul li {
   padding: 0;
 }
 
@@ -79,8 +94,8 @@ li a:hover {
 
 li:last-of-type a::before {
   content: '';
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   display: inline-block;
   background-image: url('../images/bookmark.png');
 }
@@ -92,18 +107,18 @@ li:last-of-type a::after {
 li:last-of-type a.bookmarks::after {
   display: inline-block;
   content: attr(data-value);
-  width: 18px;
-  height: 18px;
+  width: 1.125rem;
+  height: 1.125rem;
   background: #0063D3;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-  transform: translateY(-10px);
-  font-size: 13px;
+  transform: translateY(-0.625rem);
+  font-size: 0.8125rem;
   position: absolute;
-  right: -1.2em;
+  right: -1.2rem;
   text-align: center;
   opacity: 1;
   animation: bounceIn .5s;
@@ -112,17 +127,17 @@ li:last-of-type a.bookmarks::after {
 /* Animatie: https://thoughtbot.com/blog/css-animation-for-beginners */
 @keyframes bounceIn {
   0% {
-    transform: translateY(-10px) scale(0.1);
+    transform: translateY(-0625rem) scale(0.1);
     opacity: 0;
   }
 
   60% {
-    transform: translateY(-10px) scale(1.3);
+    transform: translateY(-0625rem) scale(1.3);
     opacity: 1;
   }
 
   100% {
-    transform: translateY(-10px) scale(1);
+    transform: translateY(-0625rem) scale(1);
   }
 }
 
@@ -160,9 +175,37 @@ aside {
   }
 }
 
-aside form:first-of-type {
-  padding: 2em 0;
+aside form {
+  padding: 0 1em;
 }
+
+aside form:first-of-type {
+  padding: 2em 1em;
+}
+
+/* Aside tablet */
+@media (min-width: 48em) {
+  aside form {
+    padding: 0 2em;
+  }
+  
+  aside form:first-of-type {
+    padding: 2em 2em;
+  }
+}
+
+/* Aside desktop */
+@media (min-width: 71em) {
+  aside form {
+    padding: 0 3em;
+  }
+  
+  aside form:first-of-type {
+    padding: 2em 3em;
+  }
+}
+
+
 
 /* https://codepen.io/paulcp/pen/rjWZwp */
 .switch-field {
@@ -216,7 +259,7 @@ aside form:last-of-type ul input[type="checkbox"]+label {
   width: auto;
   border-radius: 1em;
   padding: .3em .6em;
-  margin: .5em;
+  margin: .5em 1em .5em 0;
   opacity: 0.5;
   color: #060068;
   transition: 0.2s;
@@ -286,7 +329,7 @@ main div.popular {
 div>article {
   width: 100%;
   background: #fff;
-  box-shadow: 0 4px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 .25rem 0.06rem rgba(0, 0, 0, 0.3);
   margin-bottom: 3em;
   max-height: 28em;
 }
@@ -306,7 +349,7 @@ div>article {
   }
 }
 
-div>article section:first-of-type {
+div>article header {
   background: grey;
   overflow: hidden;
   display: flex;
@@ -315,12 +358,12 @@ div>article section:first-of-type {
   height: 40%;
 }
 
-div>article section:first-of-type img {
+div>article header img {
   width: 100%;
 }
 
 /* Bookmark button */
-div>article section:first-of-type form {
+div>article header form {
   position: absolute;
   display: flex;
   align-items: center;
@@ -332,11 +375,11 @@ div>article section:first-of-type form {
   height: 3em;
 }
 
-div>article section:first-of-type form input {
+div>article header form input {
   display: none;
 }
 
-div>article section:first-of-type form input+label {
+div>article header form input+label {
   display: block;
   background: url('../images/bookmark.png') no-repeat center;
   transition: .3s;
@@ -344,40 +387,40 @@ div>article section:first-of-type form input+label {
   height: 3em;
 }
 
-div>article section:first-of-type form input:checked+label {
+div>article header form input:checked+label {
   background: url('../images/bookmark-filled.png') no-repeat center;
   transition: .3s;
 }
 
-div>article section+section {
+div>article section {
   padding: 2em;
 }
 
-div>article section+section h2 {
+div>article section h2 {
   color: #060068;
 }
 
-div>article section+section footer {
+div>article section footer {
   color: #797979;
 }
 
-div>article section+section a {
+div>article section a {
   color: #0063D3;
   text-decoration: none;
   display: flex;
   align-items: center;
 }
 
-div>article section+section a::before {
+div>article section a::before {
   content: '';
-  width: 36px;
+  width: 2.25rem;
   height: 1em;
   display: inline-block;
   background-image: url('../images/button.png');
   transition: .3s;
 }
 
-div>article section+section a:hover::before {
+div>article section a:hover::before {
   transform: translateX(.5em);
 }
 
@@ -442,13 +485,13 @@ body.verhaal>article p:nth-child(4) {
 
 @keyframes blur {
   0% {
-    text-shadow: 0 0 100px #fff;
+    text-shadow: 0 0 6.25rem #fff;
     opacity: 1;
     transform: translate(0, 0);
   }
 
   5% {
-    text-shadow: 0 0 90px #fff;
+    text-shadow: 0 0 5.625rem #fff;
   }
 
   15% {
@@ -456,22 +499,22 @@ body.verhaal>article p:nth-child(4) {
   }
 
   20% {
-    text-shadow: 0 0 0px #fff;
-    transform: translate(2px, -2px);
+    text-shadow: 0 0 0 #fff;
+    transform: translate(0.125rem, -0.125rem);
   }
 
   50% {
     opacity: .3;
-    transform: translate(-5px, 5px);
+    transform: translate(-0.3125rem, 0.3125rem);
   }
 
   95% {
-    text-shadow: 0 0 90px #fff;
+    text-shadow: 0 0 5.625rem #fff;
     transform: translate(0, 0);
   }
 
   100% {
-    text-shadow: 0 0 100px #fff;
+    text-shadow: 0 0 6.25rem #fff;
     opacity: 1;
   }
 }
@@ -498,12 +541,12 @@ body.verhaal>article p:nth-child(4) {
 
   50% {
     background-color: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(0.06rem);
   }
 
   100% {
     background-color: rgba(0, 0, 20, .85);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(0.625rem);
     opacity: .9;
   }
 }
@@ -511,8 +554,8 @@ body.verhaal>article p:nth-child(4) {
 
 body.verhaal>article form {
   margin: 5em auto;
-  width: 45px;
-  height: 45px;
+  width: 2.8125rem;
+  height: 2.8125rem;
   background-color: #fff;
   border-radius: 50%;
   display: flex;
@@ -550,7 +593,7 @@ body.verhaal>article form input:checked+label {
 
 body.verhaal>article form input+label+span {
   position: absolute;
-  bottom: 70px;
+  bottom: 4.375rem;
   left: 0;
   right: 0;
   visibility: hidden;
